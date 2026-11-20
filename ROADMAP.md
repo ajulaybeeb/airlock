@@ -1,6 +1,6 @@
 # ROADMAP: Airlock
 
-Last updated: 2026-11-19 20:05 UTC
+Last updated: 2026-11-20 21:54 UTC
 
 Roadmap version: 1
 
@@ -43,7 +43,7 @@ The repository is 100% ready when every task in Phases 0 to 8 is done and every 
 | 6 | Stellar detectors | 0 | 5 | 0% |
 | 7 | Hardening and edge cases | 4 | 13 | 31% |
 | 8 | Release v0.2.0 and community | 2 | 6 | 33% |
-| 9 (backlog) | Backlog | 15 | 28 | 54% |
+| 9 (backlog) | Backlog | 19 | 32 | 59% |
 | **Phases 0 to 8** | **Readiness total** | **46** | **95** | **48%** |
 | Gates | G1 to G10 | 0 | 10 | 0% |
 <!-- PROGRESS:END -->
@@ -303,6 +303,10 @@ families.
 - [x] **9.26** Reconcile `cfg-long-line` severity documentation in README with engine behavior (HIGH in build configs, WARN elsewhere) (#28).
 - [x] **9.27** Drop phantom `cfg-nul` from detector tables in `ARCHITECTURE_ESSENTIALS.md` and `PRD.md`, noting `nul-in-text` state finding (#56).
 - [x] **9.28** Reconcile test counts in `README.md` metrics and prose with `sync_readme.py` and badge data (#97).
+- [x] **9.29** Print mode, base and tool version in the console summary line while preserving counts, files scanned and skip accounting in the same order (#62).
+- [x] **9.30** Pin the per-level annotation budget including both notes across 0 to 12 findings and suppressions for HIGH, WARN, and INFO (#63).
+- [x] **9.31** Pin property and data escaping order across %, CR, LF, colon and comma, asserting distinct bytes for newlines and literal sequences (#65).
+- [x] **9.32** Count truncation ellipsis marker inside SUMMARY_EVIDENCE_CHARS budget so excerpts never exceed 200 characters (#68).
 
 ## 6. Dependency map (critical path)
 

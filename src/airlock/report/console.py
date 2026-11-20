@@ -56,7 +56,10 @@ def summary_line(report: ScanReport) -> str:
         f"{counts[severity]} {severity.label.upper()}" for severity in reversed(list(Severity))
     )
     hidden = f", {len(report.suppressed)} suppressed" if report.suppressed else ""
+    base = flatten(report.base)[:7] if report.base else "none"
+    version = flatten(report.tool_version)
     return (
         f"airlock: {tally}{hidden} · {report.files_scanned} file(s) scanned, "
-        f"{skipped_phrase(report)}"
+        f"{skipped_phrase(report)} · mode {report.mode.value} · base {base} · "
+        f"exit {report.exit_code} · airlock {version}"
     )
