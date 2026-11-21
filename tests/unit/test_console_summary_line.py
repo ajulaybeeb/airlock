@@ -23,17 +23,14 @@ def _make_report(
     suppressed: tuple[Finding, ...] = (),
 ) -> ScanReport:
     skipped = files_skipped or {}
-    total_indexed = (
-        files_indexed
-        if files_indexed is not None
-        else files_scanned + sum(skipped.values())
-    )
+    if files_indexed is None:
+        files_indexed = files_scanned + sum(skipped.values())
     return ScanReport(
         tool_version=tool_version,
         mode=mode,
         repo_head="a" * 40,
         base=base,
-        files_indexed=total_indexed,
+        files_indexed=files_indexed,
         files_scanned=files_scanned,
         files_skipped=skipped,
         findings=findings,
