@@ -17,17 +17,21 @@ def _make_report(
     base: str | None = None,
     exit_code: int = EXIT_PASS,
     tool_version: str = "0.1.0",
+    files_indexed: int | None = None,
     files_scanned: int = 12,
     files_skipped: dict[str, int] | None = None,
     suppressed: tuple[Finding, ...] = (),
 ) -> ScanReport:
+    skipped = files_skipped or {}
+    total_indexed = files_indexed if files_indexed is not None else files_scanned + sum(skipped.values())
     return ScanReport(
         tool_version=tool_version,
         mode=mode,
         repo_head="a" * 40,
         base=base,
+        files_indexed=total_indexed,
         files_scanned=files_scanned,
-        files_skipped=files_skipped or {},
+        files_skipped=skipped,
         findings=findings,
         suppressed=suppressed,
         exit_code=exit_code,

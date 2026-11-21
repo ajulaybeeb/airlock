@@ -41,6 +41,7 @@ def _report(*findings: Finding, suppressed: tuple[Finding, ...] = ()) -> ScanRep
         mode=Mode.PR,
         repo_head="a" * 40,
         base="b" * 40,
+        files_indexed=1,
         files_scanned=1,
         files_skipped={},
         findings=findings,
